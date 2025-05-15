@@ -9,4 +9,4 @@ There is a sub-folder containing the top 100 photos from my personal photo album
 ## Complete Photo Album
 Hosted on 'JASEMANCOM' (My gaming PC at home) is a shared folder containing all of my photo albums:<br/>
 http://109.180.239.72/photo-album<br/>
-Please note: The IP address for 'JASEMANCOM' is not static - I will try to keep it updated here<br/>
+Please note: The IP address above for 'JASEMANCOM' is not static - I will try to keep it updated.<br/>
