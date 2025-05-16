@@ -10,5 +10,4 @@ photos-wide.html file is the webpage you will see on PCs and devices with > 1900
 
 ## Complete Photo Album
 Hosted on 'JASEMANCOM' (My gaming PC at home) is a shared folder containing all of my photo albums:<br/>
-http://109.180.239.72/photo-album<br/>
-Please note: The IP address above for 'JASEMANCOM' is not static - I will try to keep it updated.<br/>
+http://jaseman.co.uk/photo-album<br/>
