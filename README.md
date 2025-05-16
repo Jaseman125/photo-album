@@ -1,7 +1,5 @@
 <img src="https://jaseman125.github.io/img/photos.png" height="200">
 
-![Photo Album Icon](https://jaseman125.github.io/img/photos.png)
-
 # JASEMAN.COM PHOTO ALBUM REPOSITORY
 ## Overview
 This repository contains the content for the Photos page on JASEMAN.COM.<br/>
