@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>100 Photos</title>
+
+<style>
+    body {
+        background: #111;
+        color: #eee;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Outer container with hard limits */
+    #gridContainer {
+        width: 100%;
+        max-width: 1800px;
+        height: 100%;
+        max-height: 800px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 10px;
+        box-sizing: border-box;
+    }
+
+    /* 10×10 grid with FIXED row height */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10, 80px);
+        width: 100%;
+        height: 100%;
+        gap: 6px;
+    }
+
+    /* Images scale proportionally inside fixed-height cells */
+    .grid img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        background: #222;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 4px;
+        box-sizing: border-box;
+    }
+</style>
+
+</head>
 <body>
-<p>PLACEHOLDER FOR GITHUB</p>
 
-<p>Github needs there to be an index.html in the folder or it won't serve the contents of the folder as direct links</p>
+<div id="gridContainer">
+    <div class="grid" id="picGrid"></div>
+</div>
 
-<p>Therefore every subfolder in each repository should have a copy of this file in it</p>
+<script>
+const apiURL = "https://api.github.com/repos/Jaseman125/photo-album/contents/100-photos";
+
+fetch(apiURL)
+    .then(response => response.json())
+    .then(items => {
+
+        const allowed = [".jpg", ".jpeg", ".png", ".bmp"];
+
+        const images = items.filter(file => {
+            const name = file.name.toLowerCase();
+            return allowed.some(ext => name.endsWith(ext));
+        });
+
+        images.sort((a, b) => a.name.localeCompare(b.name));
+
+        const grid = document.getElementById("picGrid");
+
+        images.forEach(img => {
+            const link = document.createElement("a");
+            link.href = img.download_url;
+            link.target = "_blank";
+
+            const image = document.createElement("img");
+            image.src = img.download_url;
+            image.alt = img.name;
+
+            link.appendChild(image);
+            grid.appendChild(link);
+        });
+
+    })
+    .catch(err => {
+        document.getElementById("picGrid").innerHTML = "<p>Error loading images.</p>";
+        console.error(err);
+    });
+</script>
+
 </body>
 </html>
